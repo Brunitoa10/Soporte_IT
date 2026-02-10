@@ -27,8 +27,8 @@ exit /b
 :: ELEVATE TO ADMIN
 :: ===============================
 :elevate
-powershell -Command ^
- "Start-Process cmd -Verb RunAs -ArgumentList '/k \"%~f0 admin\"'"
+powershell -NoProfile -Command ^
+ "Start-Process powershell -Verb RunAs -ArgumentList '-NoExit -Command \"cmd /c \\\"%~f0 admin\\\"\"'"
 exit /b
 
 
